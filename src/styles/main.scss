@@ -1,0 +1,83 @@
+/**
+ * This injects Tailwind's base styles and any base styles registered by
+ * plugins.
+ */
+// @tailwind base;
+
+/**
+  * This injects Tailwind's component classes and any component classes
+  * registered by plugins.
+  */
+@tailwind components;
+
+/** *
+  * This injects Tailwind's utility classes and any utility classes registered
+  * by plugins.
+  */
+@tailwind utilities;
+
+// @layer base {
+//   button,
+//   [type="button"],
+//   [type="reset"],
+//   [type="submit"] {
+//     -webkit-appearance: button;
+//     background-color: transparent;
+//     background-image: none;
+//   }
+// }
+
+@import "./_fonts.scss";
+
+@include font-face("Monaco", "./fonts/Monaco.ttf", null, null, ttf);
+
+:root {
+  box-sizing: border-box;
+  --base-font-size-web: 16px;
+  --base-font-size-mobile: 12px;
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+  font-family: GenJyuuGothicX, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  scroll-behavior: smooth #{!important};
+  font-size: var(--base-font-size-web);
+  // scrollbar-width: none; /*Firefox対応のスクロールバー非表示コード*/
+  // -ms-overflow-style: none; /*Internet Explore対応のスクロールバー非表示コード*/
+}
+
+@media (max-width: 760px) {
+  html,
+  body,
+  input,
+  input::-webkit-input-placeholder,
+  textarea,
+  textarea::-webkit-input-placeholder {
+    font-size: var(--base-font-size-mobile) #{!important};
+  }
+}
+
+/** <--- SNS color --- */
+.color-github {
+  color: #333333;
+  // color: white;
+}
+.color-facebook {
+  color: #3b5998;
+}
+.color-twitter {
+  color: #4da7de;
+}
+.color-linkedin {
+  color: #007bb5;
+}
+.color-instagram {
+  color: #b900b4;
+  // background-image: linear-gradient(-135deg, #1400c8, #b900b4, #f50000);
+  // background-clip: inherit;
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
+}
+/** --- END SNS color ---> */

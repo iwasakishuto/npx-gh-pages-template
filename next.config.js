@@ -1,6 +1,11 @@
 const urlPrefix = process.env.URL_PREFIX ? "/" + process.env.URL_PREFIX : "";
+const withPWA = require("next-pwa")({
+  dest: "public",
+  register: true,
+  skipWaiting: true,
+});
 
-const nextConfig = {
+const nextConfig = withPWA({
   reactStrictMode: true,
   swcMinify: true,
   /**
@@ -12,6 +17,9 @@ const nextConfig = {
   /**
    * --- END Settings for Github Pages --->
    */
-};
+  images: {
+    unoptimized: true,
+  },
+});
 
 module.exports = nextConfig;
